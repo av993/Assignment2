@@ -73,7 +73,8 @@ int Str_compare(const char s1[], const char s2[]) {
         max_length = length1;
     }
 
-    for (int i = 0; i < max_length; i++) {
+    size_t i;
+    for (i = 0; i < max_length; i++) {
         if (s1[i] == '\0' && s2[i] != '\0') {
             return 1;
         } else if (s2[i] == '\0' && s1[i] != '\0') {
@@ -97,7 +98,8 @@ char *strstr(const char *haystack, const char *needle) {
     size_t needleStart = -1;
     size_t needleIndex = 0;
 
-    for (int i = 0; i < sizeof(haystack); i++) {
+    size_t i;
+    for (i = 0; i < sizeof(haystack); i++) {
         if (haystack[i] == needle[needleIndex]) {
             if (needleIndex == 0) {
                 needleStart = i;
