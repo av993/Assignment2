@@ -39,12 +39,8 @@ char * Str_concat(char pcDest[], const char pcSrc[]) {
 
     size_t curr = 0;
 
-    /* concat: pcDest = pcDest + pcSrc STRING */
-
     while (pcDest[curr] != '\0') 
         curr++;
-
-    /* curr is equal to the index of the \0 at the end of pcDest string */
 
     size_t i = 0;
 
