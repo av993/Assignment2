@@ -69,8 +69,6 @@ int Str_compare(const char s1[], const char s2[]) {
         max_length = length1;
     }
 
-    printf("%d\n", max_length);
-
     size_t i;
     for (i = 0; i < max_length; i++) {
         if (s1[i] == '\0') {
