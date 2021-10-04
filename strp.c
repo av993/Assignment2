@@ -41,19 +41,21 @@ char * Str_concat(char pcDest[], const char pcSrc[]) {
     size_t destLength;
     destLength = Str_getLength(pcDest);
     
-    size_t i = 0;
-    const char *srcPtr;
-    const char *destPtr;
+    char *srcPtr;
+    char *destPtr;
+    srcPtr = pcSrc;
+    destPtr = pcDest;
+    
     srcPtr += destLength;
 
 
     while (*srcPtr != '\0') {
-        destPtr = *srcPtr;
+        *destPtr = *srcPtr;
         srcPtr++;
         destPtr++;
     }
 
-    destPtr = '\0';
+    *destPtr = '\0';
     return pcDest;
 }
 
