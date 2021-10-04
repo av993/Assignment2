@@ -90,7 +90,7 @@ int Str_compare(const char s1[], const char s2[]) {
     return 0;
 }
 
-char *String_search(const char *haystack, const char *needle) {
+char *Str_search(const char *haystack, const char *needle) {
     assert(haystack != NULL);
     assert(needle != NULL);
 

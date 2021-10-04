@@ -24,4 +24,4 @@ char * Str_concat(char pcDest[], const char pcSrc[]);
 int Str_compare(const char s1[], const char s2[]);
 
 
-char *String_search(const char *haystack, const char *needle);
+char *Str_search(const char *haystack, const char *needle);
