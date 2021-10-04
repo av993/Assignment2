@@ -105,31 +105,38 @@ char *Str_search(const char *haystack, const char *needle) {
     size_t needleIndex = 0;
 
     size_t i = 0;
+    size_t j = 0;
+
+
     while (haystack[i] != '\0') {
-        if (needleIndex == needleLength) {
-            break;
-        }
+        printf("Iteration: %d\n", i);
+        j = i;
+        needleStart = -1;
+        needleIndex = 0;
 
-        if (haystack[i] == needle[needleIndex]) {
-            if (needleIndex == 0) {
-                needleStart = i;
+        while (haystack[j] != '\0') {
+            if (haystack[j] == needle[needleIndex]) {
+                printf("FOUND: %c\n", haystack[j]);
+                if (needleIndex == 0) {
+                    needleStart = j;
+                }
+                needleIndex++;
+            } else {
+                printf("END: %c\n", haystack[j]);
+                needleStart = -1;
+                break;
             }
-            needleIndex++;
-        } else if (haystack[i] == needle[0]) {
-            needleIndex = 1;
-            needleStart = i;
-        } else {
-            needleStart = -1;
+
+            j++;
         }
 
+        if (needleIndex == needleLength) {
+            return &haystack[needleStart];
+        }
         i++;
     }
 
-
-    if (needleStart == -1 || needleIndex != needleLength) {
-        return NULL;
-    } else {
-        return &haystack[needleStart];
-    }
+    return NULL;
 
 }
+
