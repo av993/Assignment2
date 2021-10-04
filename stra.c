@@ -111,17 +111,14 @@ char *Str_search(const char *haystack, const char *needle) {
         }
 
         if (haystack[i] == needle[needleIndex]) {
-            printf("FOUND: %c\n", haystack[i]);
             if (needleIndex == 0) {
                 needleStart = i;
             }
             needleIndex++;
         } else if (haystack[i] == needle[0]) {
-            printf("NEW: %c\n", haystack[i]);
             needleIndex = 1;
             needleStart = i;
         } else {
-            printf("END: %c\n", haystack[i]);
             needleStart = -1;
         }
 
