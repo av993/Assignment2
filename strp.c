@@ -46,8 +46,7 @@ char * Str_concat(char pcDest[], const char pcSrc[]) {
     srcPtr = pcSrc;
     destPtr = pcDest;
     
-    srcPtr += destLength;
-
+    destPtr += destLength;
 
     while (*srcPtr != '\0') {
         *destPtr = *srcPtr;
@@ -144,3 +143,5 @@ char *Str_search(const char *haystack, const char *needle) {
     }
     return NULL;
 }
+
+
