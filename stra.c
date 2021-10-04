@@ -39,7 +39,7 @@ char * Str_concat(char pcDest[], const char pcSrc[]) {
 
     size_t curr;
     curr = Str_getLength(pcDest);
-    
+
     size_t i = 0;
 
     while (pcSrc[i] != '\0') {
@@ -100,6 +100,9 @@ char *Str_search(const char *haystack, const char *needle) {
     size_t needleLength;
     needleLength = Str_getLength(needle);
 
+    if (needle[0] == "") {
+        return haystack;
+    }
     
     size_t needleStart = -1;
     size_t needleIndex = 0;
@@ -135,4 +138,3 @@ char *Str_search(const char *haystack, const char *needle) {
     return NULL;
 
 }
-
