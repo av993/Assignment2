@@ -60,8 +60,8 @@ int Str_compare(const char s1[], const char s2[]) {
     assert(s2 != NULL);
 
     size_t max_length = 0;
-    size_t length1 = sizeof(s1);
-    size_t length2 = sizeof(s2);
+    size_t length1 = sizeof(s1) / sizeof(int);
+    size_t length2 = sizeof(s2) / sizeof(int);
 
     if (length1 < length2) {
         max_length = length2;
@@ -95,7 +95,7 @@ char *Str_search(const char *haystack, const char *needle) {
     size_t needleIndex = 0;
 
     size_t i;
-    for (i = 0; i < sizeof(haystack); i++) {
+    for (i = 0; i < sizeof(haystack)  / sizeof(int); i++) {
         if (haystack[i] == needle[needleIndex]) {
             if (needleIndex == 0) {
                 needleStart = i;
