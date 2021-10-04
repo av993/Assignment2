@@ -25,18 +25,18 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
     assert(pcDest != NULL);
 
     size_t curr = 0;
-    const char *srcStart;
-    const char *destStart;
+    const char *srcPtr;
+    const char *destPtr;
 
-    srcStart = pcSrc;
+    srcPtr = pcSrc;
 
-    while (*srcStart != '\0') {
-        destStart = *srcStart;
-        srcStart++;
-        destStart++;
+    while (*srcPtr != '\0') {
+        destPtr = *srcPtr;
+        srcPtr++;
+        destPtr++;
     }
 
-    destStart = '\0';
+    destPtr = '\0';
     return pcDest;
 }
 
@@ -44,18 +44,22 @@ char * Str_concat(char pcDest[], const char pcSrc[]) {
     assert(pcSrc != NULL);
     assert(pcDest != NULL);
 
-    size_t curr;
-    curr = Str_getLength(pcDest);
+    size_t destLength;
+    destLength = Str_getLength(pcDest);
     
     size_t i = 0;
+    const char *srcPtr;
+    const char *destPtr;
+    srcPtr += destLength;
 
-    while (pcSrc[i] != '\0') {
-        pcDest[curr] = pcSrc[i];
-        i++;
-        curr++;
+
+    while (*srcPtr != '\0') {
+        destPtr = *srcPtr;
+        srcPtr++;
+        destPtr++;
     }
 
-    pcDest[curr] = '\0';
+    destPtr = '\0';
     return pcDest;
 }
 
