@@ -71,11 +71,12 @@ int Str_compare(const char s1[], const char s2[]) {
 
     size_t i;
     for (i = 0; i < max_length; i++) {
-        if (s1[i] == '\0' && s2[i] != '\0') {
+        if (i == (length1 - 1)) {
             return 1;
-        } else if (s2[i] == '\0' && s1[i] != '\0') {
+        } else if (i == (length2 - 1)) {
             return -1;
         }
+
         if (s1[i] < s2[i]) {
             return -1;
         } else if (s1[i] < s2[i]) {

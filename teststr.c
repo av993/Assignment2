@@ -328,7 +328,6 @@ static void testCompare(void)
       const char acSrc2[] = {'\0', 'y', 'y', 'y', 'y', 'y'};
       iResult1 = Str_compare(acSrc1, acSrc2);
       iResult2 = strcmp(acSrc1, acSrc2);
-      printf(iResult2);
       ASSURE(sign(iResult1) == sign(iResult2));
    }
 
