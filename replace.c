@@ -83,6 +83,7 @@ static char* replaceAndWrite(const char *pcLine,
    Assume that no line of stdin consists of more than MAX_LINE_SIZE-1
    characters. */
 
+
 int main(int argc, char *argv[])
 {
    enum {MAX_LINE_SIZE = 4096};
