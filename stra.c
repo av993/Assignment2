@@ -84,7 +84,7 @@ int Str_compare(const char s1[], const char s2[]) {
 
         if (s1[i] < s2[i]) {
             return -1;
-        } else if (s1[i] < s2[i]) {
+        } else if (s1[i] > s2[i]) {
             return 1;
         }
     }
@@ -117,4 +117,16 @@ char *Str_search(const char *haystack, const char *needle) {
         return &haystack[needleStart];
     }
 
+}
+
+int main() {
+       
+    const char acSrc1[] = {'R', 'u', 't', 'h', '\0', 'x'};
+    const char acSrc2[] = {'R', 'o', 't', 'h', '\0', 'y'};
+    int iResult1 = Str_compare(acSrc1, acSrc2);
+    int iResult2 = strcmp(acSrc1, acSrc2);
+    printf("%d\n", iResult1);
+    printf("%d\n", iResult2);
+    return 0;
+   
 }
