@@ -38,9 +38,10 @@ char * Str_concat(char pcDest[], const char pcSrc[]) {
     assert(pcDest != NULL);
 
     size_t curr;
-    curr = Str_getLength(pcDest);
+    size_t i;
 
-    size_t i = 0;
+    i = 0;
+    curr = Str_getLength(pcDest);
 
     while (pcSrc[i] != '\0') {
         pcDest[curr] = pcSrc[i];
@@ -58,10 +59,10 @@ int Str_compare(const char s1[], const char s2[]) {
     assert(s2 != NULL);
 
     size_t max_length = 0;
-
     size_t length1; 
-    length1 = Str_getLength(s1);
     size_t length2;
+
+    length1 = Str_getLength(s1);
     length2 = Str_getLength(s2);
 
     if (length1 < length2) {
@@ -98,18 +99,21 @@ char *Str_search(const char *haystack, const char *needle) {
     assert(needle != NULL);
 
     size_t needleLength;
+    size_t needleStart;
+    size_t needleIndex;
+    size_t i;
+    size_t j;
+
+    needleStart = -1;
+    needleIndex = 0;
+    i = 0;
+    j = 0;
+
     needleLength = Str_getLength(needle);
 
     if (needleLength == 0) {
         return haystack;
     }
-    
-    size_t needleStart = -1;
-    size_t needleIndex = 0;
-
-    size_t i = 0;
-    size_t j = 0;
-
 
     while (haystack[i] != '\0') {
         j = i;
