@@ -120,16 +120,3 @@ char *Str_search(const char *haystack, const char *needle) {
     }
 
 }
-
-int main() {
-
-    const char acSrc1[] = {'B', 'a', 'b', 'e', '\0', 'y'};
-    const char acSrc2[] =
-         {'B', 'a', 'b', 'e', 'R', 'u', 't', 'h', '\0', 'x'};
-    int iResult1 = Str_compare(acSrc1, acSrc2);
-    int iResult2 = strcmp(acSrc1, acSrc2);
-    printf("%d\n", iResult1);
-    printf("%d\n", iResult2);
-    return 0;
-   
-}
