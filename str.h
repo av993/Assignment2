@@ -11,11 +11,6 @@ iSecond. */
 #include <stdlib.h>
 #include <assert.h>
 
-#ifndef S_SPLINT_S
-#include <sys/resource.h>
-#endif
-
-
 
 size_t Str_getLength(const char pcSrc[]);
 
@@ -30,11 +25,3 @@ int Str_compare(const char s1[], const char s2[]);
 
 
 char *strstr(const char *haystack, const char *needle);
-
-
-/*--------------------------------------------------------------------*/
-
-/* Return the least common multiple of positive integers iFirst and
-iSecond. */
-
-int lcm(int iFirst, int iSecond);
