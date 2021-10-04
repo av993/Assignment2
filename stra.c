@@ -109,20 +109,17 @@ char *Str_search(const char *haystack, const char *needle) {
 
 
     while (haystack[i] != '\0') {
-        printf("Iteration: %d\n", i);
         j = i;
         needleStart = -1;
         needleIndex = 0;
 
         while (haystack[j] != '\0') {
             if (haystack[j] == needle[needleIndex]) {
-                printf("FOUND: %c\n", haystack[j]);
                 if (needleIndex == 0) {
                     needleStart = j;
                 }
                 needleIndex++;
             } else {
-                printf("END: %c\n", haystack[j]);
                 needleStart = -1;
                 break;
             }
