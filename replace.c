@@ -26,11 +26,12 @@ static char* replaceAndWrite(const char *pcLine,
 
    size_t num_replacements = 0;
 
-   if (pcFrom == "") {
+   if (Str_getLength(pcFrom) == 0) {
       while (*pcLine != '\0') {
          putchar(*pcLine);
          pcLine++;
       }
+      return 0;
    }
 
    char* pcMain = pcLine;
