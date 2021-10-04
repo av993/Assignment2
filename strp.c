@@ -9,13 +9,15 @@
 #endif
 
 
-size_t Str_getLength(const char pcSrc[])
+
+size_t Str_getLength(const char *pcSrc)
 {
-   size_t uLength = 0;
+   const char *pcEnd;
    assert(pcSrc != NULL);
-   while (pcSrc[uLength] != '\0')
-      uLength++;
-   return uLength;
+   pcEnd = pcSrc;
+   while (*pcEnd != '\0')
+      pcEnd++;
+   return (size_t)(pcEnd - pcSrc);
 }
 
 char* Str_copy(char pcDest[], const char pcSrc[]) {
@@ -23,13 +25,18 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
     assert(pcDest != NULL);
 
     size_t curr = 0;
+    const char *srcStart;
+    const char *destStart;
 
-    while (pcSrc[curr] != '\0') {
-        pcDest[curr] = pcSrc[curr];
-        curr++;
+    srcStart = pcSrc;
+
+    while (*srcStart != '\0') {
+        destStart = *srcStart;
+        srcStart++;
+        destStart++;
     }
 
-    pcDest[curr] = '\0';
+    destStart = '\0';
     return pcDest;
 }
 
