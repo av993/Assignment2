@@ -78,6 +78,8 @@ int Str_compare(const char s1[], const char s2[]) {
 
     const char *s1Ptr;
     const char *s2Ptr;
+    s1Ptr = s1;
+    s2Ptr = s2;
 
     size_t i;
     for (i = 0; i < max_length; i++) {
