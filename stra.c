@@ -60,14 +60,16 @@ int Str_compare(const char s1[], const char s2[]) {
     assert(s2 != NULL);
 
     size_t max_length = 0;
-    size_t length1 = sizeof(s1) / sizeof(int);
-    size_t length2 = sizeof(s2) / sizeof(int);
+    size_t length1 = sizeof(s1) / sizeof(s1[0]);
+    size_t length2 = sizeof(s2) / sizeof(s2[0]);
 
     if (length1 < length2) {
         max_length = length2;
     } else {
         max_length = length1;
     }
+
+    printf("%d\n", max_length);
 
     size_t i;
     for (i = 0; i < max_length; i++) {
@@ -117,4 +119,17 @@ char *Str_search(const char *haystack, const char *needle) {
         return &haystack[needleStart];
     }
 
+}
+
+int main() {
+
+    const char acSrc1[] = {'B', 'a', 'b', 'e', '\0', 'y'};
+    const char acSrc2[] =
+         {'B', 'a', 'b', 'e', 'R', 'u', 't', 'h', '\0', 'x'};
+    int iResult1 = Str_compare(acSrc1, acSrc2);
+    int iResult2 = strcmp(acSrc1, acSrc2);
+    printf("%d\n", iResult1);
+    printf("%d\n", iResult2);
+    return 0;
+   
 }
