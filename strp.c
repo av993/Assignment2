@@ -122,6 +122,11 @@ char *Str_search(const char *haystack, const char *needle) {
     const char *needlePtr;
     const char *needleStart;
 
+    haystackPtr = haystack;
+    innerHaystackPtr = haystack;
+    needlePtr = needle;
+    needleStart = NULL;
+
     while (*haystackPtr != '\0') {
         innerHaystackPtr = haystackPtr;
         needleStart = NULL;
