@@ -119,13 +119,3 @@ char *Str_search(const char *haystack, const char *needle) {
 
 }
 
-int main() {
-      const char acHaystack[] = "abcde";
-      const char acNeedle[] = "abcdf";
-    char* pcResult1 = Str_search(acHaystack, acNeedle);
-    char* pcResult2 = strstr(acHaystack, acNeedle);
-    printf("%s\n", pcResult1);
-    printf("%s\n", pcResult2);
-    return 0;
-   
-}
