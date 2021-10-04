@@ -81,22 +81,25 @@ int Str_compare(const char s1[], const char s2[]) {
         max_length = length1;
     }
 
+    const char *s1Ptr;
+    const char *s2Ptr;
+
     size_t i;
     for (i = 0; i < max_length; i++) {
-        if (s1[i] == '\0') {
-            if (s2[i] == '\0') {
+        if (*s1Ptr == '\0') {
+            if (*s2Ptr  == '\0') {
                 return 0;
             } else {
                 return -1;
             }
             return 1;
-        } else if (s2[i] == '\0') {
+        } else if (*s2Ptr == '\0') {
             return 1;
         }
 
-        if (s1[i] < s2[i]) {
+        if (*s1Ptr < *s2Ptr) {
             return -1;
-        } else if (s1[i] > s2[i]) {
+        } else if (*s1Ptr > *s2Ptr) {
             return 1;
         }
     }
@@ -111,36 +114,37 @@ char *Str_search(const char *haystack, const char *needle) {
     size_t needleLength;
     needleLength = Str_getLength(needle);
 
-    
-    size_t needleStart = -1;
-    size_t needleIndex = 0;
-
     size_t i = 0;
     size_t j = 0;
+    
+    const char *haystackPtr;
+    const char *innerHaystackPtr;
+    const char *needlePtr;
+    const char *needleStart;
 
+    while (*haystackPtr != '\0') {
+        innerHaystackPtr = haystackPtr;
+        needleStart = NULL;
+        needlePtr = needle;
 
-    while (haystack[i] != '\0') {
-        j = i;
-        needleStart = -1;
-        needleIndex = 0;
-
-        while (haystack[j] != '\0') {
-            if (haystack[j] == needle[needleIndex]) {
-                if (needleIndex == 0) {
-                    needleStart = j;
+        while (*innerHaystackPtr != '\0') {
+            if (*innerHaystackPtr == *needlePtr) {
+                if (needlePtr == needle) {
+                    needleStart = innerHaystackPtr;
                 }
-                needleIndex++;
+                needlePtr++;
             } else {
                 break;
             }
 
-            j++;
+            innerHaystackPtr++;
         }
         
-        if (needleIndex == needleLength) {
-            return &haystack[needleStart];
+        if (*needlePtr == "\0") {
+            return needleStart;
         }
-        i++;
+
+        haystackPtr++;
     }
 
     return NULL;
