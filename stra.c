@@ -3,10 +3,6 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#ifndef S_SPLINT_S
-#include <sys/resource.h>
-#endif
-
 
 size_t Str_getLength(const char pcSrc[])
 {
