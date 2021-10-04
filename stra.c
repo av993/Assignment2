@@ -100,7 +100,7 @@ char *Str_search(const char *haystack, const char *needle) {
     size_t needleLength;
     needleLength = Str_getLength(needle);
 
-    if (needle[0] == "") {
+    if (needleLength == 0) {
         return haystack;
     }
     
