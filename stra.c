@@ -106,7 +106,7 @@ char *Str_search(const char *haystack, const char *needle) {
 
     size_t i = 0;
     while (haystack[i] != '\0') {
-        if (needleIndex >= needleLength) {
+        if (needleIndex == needleLength) {
             break;
         }
 
@@ -124,10 +124,21 @@ char *Str_search(const char *haystack, const char *needle) {
 
 
 
-    if (needleStart == -1) {
+    if (needleStart == -1 || needleIndex != needleLength) {
         return NULL;
     } else {
         return &haystack[needleStart];
     }
 
+}
+
+int main() {
+      const char acHaystack[] = "abcde";
+      const char acNeedle[] = "bcdef";
+    char* pcResult1 = Str_search(acHaystack, acNeedle);
+    char* pcResult2 = strstr(acHaystack, acNeedle);
+    printf("%s\n", pcResult1);
+    printf("%s\n", pcResult2);
+    return 0;
+   
 }
