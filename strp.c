@@ -4,12 +4,6 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#ifndef S_SPLINT_S
-#include <sys/resource.h>
-#endif
-
-
-
 size_t Str_getLength(const char *pcSrc)
 {
    const char *pcEnd;
@@ -24,19 +18,19 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
     assert(pcSrc != NULL);
     assert(pcDest != NULL);
 
-    size_t curr = 0;
-    const char *srcPtr;
-    const char *destPtr;
+    char *srcPtr;
+    char *destPtr;
 
     srcPtr = pcSrc;
+    destPtr = pcDest;
 
     while (*srcPtr != '\0') {
-        destPtr = *srcPtr;
+        *destPtr = *srcPtr;
         srcPtr++;
         destPtr++;
     }
 
-    destPtr = '\0';
+    *destPtr = *srcPtr;
     return pcDest;
 }
 
@@ -146,8 +140,5 @@ char *Str_search(const char *haystack, const char *needle) {
 
         haystackPtr++;
     }
-
     return NULL;
-
 }
-
