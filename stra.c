@@ -138,15 +138,3 @@ char *Str_search(const char *haystack, const char *needle) {
     return NULL;
 
 }
-
-int main() {
-
-    const char acSrc[] = {'\0', 's'};
-    char acDest1[] = {'d', 'd'};
-    char acDest2[] = {'d', 'd'};
-    char* pcResult = Str_copy(acDest1, acSrc);
-    (void)strcpy(acDest2, acSrc);
-    printf("%s\n", acDest1);
-    printf("%s\n", acDest2);
-    return 0;
-}
