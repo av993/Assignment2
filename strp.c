@@ -99,6 +99,9 @@ int Str_compare(const char s1[], const char s2[]) {
         } else if (*s1Ptr > *s2Ptr) {
             return 1;
         }
+
+        s1Ptr++;
+        s2Ptr++;
     }
 
     return 0;
