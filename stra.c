@@ -111,17 +111,22 @@ char *Str_search(const char *haystack, const char *needle) {
         }
 
         if (haystack[i] == needle[needleIndex]) {
+            printf("FOUND: %c\n", haystack[i]);
             if (needleIndex == 0) {
                 needleStart = i;
             }
             needleIndex++;
+        } else if (haystack[i] == needle[0]) {
+            printf("NEW: %c\n", haystack[i]);
+            needleIndex = 1;
+            needleStart = i;
         } else {
+            printf("END: %c\n", haystack[i]);
             needleStart = -1;
         }
 
         i++;
     }
-
 
 
     if (needleStart == -1 || needleIndex != needleLength) {
@@ -132,3 +137,13 @@ char *Str_search(const char *haystack, const char *needle) {
 
 }
 
+int main() {
+      const char acHaystack[] = "aab";
+      const char acNeedle[] = "ab";
+    char* pcResult1 = Str_search(acHaystack, acNeedle);
+    char* pcResult2 = strstr(acHaystack, acNeedle);
+    printf("%s\n", pcResult1);
+    printf("%s\n", pcResult2);
+    return 0;
+   
+}
