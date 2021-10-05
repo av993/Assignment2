@@ -99,40 +99,39 @@ int Str_compare(const char s1[], const char s2[]) {
     return 0;
 }
 
-char *Str_search(const char *haystack, const char *needle) {
+char *Str_search(const char *pcHaystack, const char *pcNeedle) {
 
-    size_t needleLength;
-    size_t needleStart;
-    size_t needleIndex;
+    size_t pcNeedleLength;
+    size_t pcNeedleStart;
+    size_t pcNeedleIndex;
     size_t i;
     size_t j;
 
-    assert(haystack != NULL);
-    assert(needle != NULL);
+    assert(pcHaystack != NULL);
+    assert(pcNeedle != NULL);
 
-
-    needleStart = -1;
-    needleIndex = 0;
+    pcNeedleStart = -1;
+    pcNeedleIndex = 0;
     i = 0;
     j = 0;
 
-    needleLength = Str_getLength(needle);
+    pcNeedleLength = Str_getLength(pcNeedle);
 
-    if (needleLength == 0) {
-        return haystack;
+    if (pcNeedleLength == 0) {
+        return (char*)pcHaystack;
     }
 
-    while (haystack[i] != '\0') {
+    while (pcHaystack[i] != '\0') {
         j = i;
-        needleStart = -1;
-        needleIndex = 0;
+        pcNeedleStart = -1;
+        pcNeedleIndex = 0;
 
-        while (haystack[j] != '\0') {
-            if (haystack[j] == needle[needleIndex]) {
-                if (needleIndex == 0) {
-                    needleStart = j;
+        while (pcHaystack[j] != '\0') {
+            if (pcHaystack[j] == pcNeedle[pcNeedleIndex]) {
+                if (pcNeedleIndex == 0) {
+                    pcNeedleStart = j;
                 }
-                needleIndex++;
+                pcNeedleIndex++;
             } else {
                 break;
             }
@@ -140,8 +139,8 @@ char *Str_search(const char *haystack, const char *needle) {
             j++;
         }
         
-        if (needleIndex == needleLength) {
-            return &haystack[needleStart];
+        if (pcNeedleIndex == pcNeedleLength) {
+            return (char*)&pcHaystack[pcNeedleStart];
         }
         i++;
     }
