@@ -117,8 +117,6 @@ char *Str_search(const char *haystack, const char *needle) {
     const char *needlePtr;
     const char *needleStart;
     size_t i;
-    size_t j;
-
 
     needleLength = Str_getLength(needle);
 
@@ -127,7 +125,6 @@ char *Str_search(const char *haystack, const char *needle) {
     }
 
     i = 0;
-    j = 0;
     haystackPtr = haystack;
     innerHaystackPtr = haystack;
     needlePtr = needle;

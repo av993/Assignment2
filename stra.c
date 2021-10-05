@@ -19,10 +19,12 @@ size_t Str_getLength(const char pcSrc[])
 }
 
 char* Str_copy(char pcDest[], const char pcSrc[]) {
+
+    size_t curr;
+    curr = 0;
+
     assert(pcSrc != NULL);
     assert(pcDest != NULL);
-
-    size_t curr = 0;
 
     while (pcSrc[curr] != '\0') {
         pcDest[curr] = pcSrc[curr];
@@ -33,12 +35,13 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
     return pcDest;
 }
 
-char * Str_concat(char pcDest[], const char pcSrc[]) {
-    assert(pcSrc != NULL);
-    assert(pcDest != NULL);
-
+char* Str_concat(char pcDest[], const char pcSrc[]) {
+    
     size_t curr;
     size_t i;
+
+    assert(pcSrc != NULL);
+    assert(pcDest != NULL);
 
     i = 0;
     curr = Str_getLength(pcDest);
@@ -55,12 +58,13 @@ char * Str_concat(char pcDest[], const char pcSrc[]) {
 
 
 int Str_compare(const char s1[], const char s2[]) {
-    assert(s1 != NULL);
-    assert(s2 != NULL);
 
-    size_t max_length = 0;
+    size_t max_length;
     size_t length1; 
     size_t length2;
+
+    assert(s1 != NULL);
+    assert(s2 != NULL);
 
     length1 = Str_getLength(s1);
     length2 = Str_getLength(s2);
@@ -95,14 +99,16 @@ int Str_compare(const char s1[], const char s2[]) {
 }
 
 char *Str_search(const char *haystack, const char *needle) {
-    assert(haystack != NULL);
-    assert(needle != NULL);
 
     size_t needleLength;
     size_t needleStart;
     size_t needleIndex;
     size_t i;
     size_t j;
+
+    assert(haystack != NULL);
+    assert(needle != NULL);
+
 
     needleStart = -1;
     needleIndex = 0;
