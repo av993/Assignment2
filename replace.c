@@ -39,7 +39,7 @@ static size_t replaceAndWrite(const char *pcLine,
       return 0;
    }
 
-   pcMain = pcLine;
+   pcMain = (char*)pcLine;
    ptrTo = (char*)pcTo;
 
    while (Str_search(pcMain, pcFrom) != NULL) {
@@ -61,7 +61,7 @@ static size_t replaceAndWrite(const char *pcLine,
 
       pcMain = pcFound;
       pcMain += Str_getLength(pcFrom);
-      ptrTo = pcTo;
+      ptrTo = (char*)pcTo;
       num_replacements++;
 
    }
