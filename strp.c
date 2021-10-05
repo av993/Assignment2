@@ -23,7 +23,7 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
     assert(pcSrc != NULL);
     assert(pcDest != NULL);
 
-    srcPtr = pcSrc;
+    srcPtr = (char*)pcSrc;
     destPtr = pcDest;
 
     while (*srcPtr != '\0') {
