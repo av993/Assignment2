@@ -118,28 +118,28 @@ char *Str_search(const char *pcHaystack, const char *pcNeedle) {
     const char *needlePtr;
     const char *needleStart;
 
-    assert(haystack != NULL);
-    assert(needle != NULL);
+    assert(pcHaystack != NULL);
+    assert(pcNeedle != NULL);
 
-    needleLength = Str_getLength(needle);
+    needleLength = Str_getLength(pcNeedle);
 
     if (needleLength == 0) {
-        return (char*)haystack;
+        return (char*)pcHaystack;
     }
 
-    haystackPtr = haystack;
-    innerHaystackPtr = haystack;
-    needlePtr = needle;
+    haystackPtr = pcHaystack;
+    innerHaystackPtr = pcHaystack;
+    needlePtr = pcNeedle;
     needleStart = NULL;
 
     while (*haystackPtr != '\0') {
         innerHaystackPtr = haystackPtr;
         needleStart = NULL;
-        needlePtr = needle;
+        needlePtr = pcNeedle;
 
         while (*innerHaystackPtr != '\0') {
             if (*innerHaystackPtr == *needlePtr) {
-                if (needlePtr == needle) {
+                if (needlePtr == pcNeedle) {
                     needleStart = innerHaystackPtr;
                 }
                 needlePtr++;
