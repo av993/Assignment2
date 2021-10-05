@@ -4,7 +4,6 @@ Assignment 2 readme File
 What is your name?
 Ameya Vaidya    
 
-
 ------------------------------------------------------------------------
 What authorized sources of information did you use to complete the
 assignment? COPY THE LIST of authorized sources of information given
@@ -20,6 +19,8 @@ Such documents include the course's lecture slides and precept handouts.
 - The man pages on the armlab cluster.
 - The course's current staff members outside of class time through office hours.
 - Current lab teaching assistants through visits to the course labs.
+- Assignment specification - str_getLength() function for stra.c and
+    strp.c
 
 ------------------------------------------------------------------------
 What unauthorized sources of information did you use to complete the
@@ -51,7 +52,13 @@ What warnings does splint generate on stra.c, and what are your
 disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
-None
+stra.c: line 162: low priority: 
+This area is deeply nested at level 4, consider refactoring
+
+This deeply nested syntax is neccessary for stra.c to function
+    correctly (specifically the Str_search part). Because it is a nested loop,
+    we need to go this level of depth in order to properly
+    implement my algorithm.
 
 
 
@@ -60,7 +67,13 @@ What warnings does critTer generate on stra.c, and what are your
 disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
-None
+strp.c: line 172: low priority: 
+This area is deeply nested at level 4, consider refactoring
+
+This deeply nested syntax is neccessary for stra.c to function
+    correctly (specifically the Str_search part). Because it is a nested loop,
+    we need to go this level of depth in order to properly
+    implement my algorithm.
 
 
 ------------------------------------------------------------------------
@@ -69,6 +82,12 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 None
+
+This deeply nested syntax is neccessary for stra.c to function
+    correctly (specifically the Str_search part). Because it is a nested loop,
+    we need to go this level of depth in order to properly
+    implement my algorithm.
+
 
 
 ------------------------------------------------------------------------
@@ -101,6 +120,11 @@ Is it possible for Str_copy or Str_concat to call assert to verify
 that the destination memory area specified by the caller is large
 enough? Explain.
 
-
-
+It is not possible for Str_copy or Str_concat to call assert to verify
+that the destination memory area specificied by the called is large 
+enough. We dont know how much was allocated to the character array
+because the memory after the null byte could either be part of the 
+character array or refer to other pieces of memory allocated
+by the program that we dont have the knowledge for as to whether 
+it is an offset of the destination string.
 ------------------------------------------------------------------------
