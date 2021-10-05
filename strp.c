@@ -7,9 +7,8 @@
 
 size_t Str_getLength(const char *pcSrc)
 {
-   assert(pcSrc != NULL);
    const char *pcEnd;
-
+   assert(pcSrc != NULL);
    pcEnd = pcSrc;
    while (*pcEnd != '\0')
       pcEnd++;
@@ -17,11 +16,12 @@ size_t Str_getLength(const char *pcSrc)
 }
 
 char* Str_copy(char pcDest[], const char pcSrc[]) {
-    assert(pcSrc != NULL);
-    assert(pcDest != NULL);
 
     char *srcPtr;
     char *destPtr;
+
+    assert(pcSrc != NULL);
+    assert(pcDest != NULL);
 
     srcPtr = pcSrc;
     destPtr = pcDest;
@@ -46,7 +46,7 @@ char * Str_concat(char pcDest[], const char pcSrc[]) {
     assert(pcDest != NULL);
 
     destLength = Str_getLength(pcDest);
-    srcPtr = pcSrc;
+    srcPtr = (char*)pcSrc;
     destPtr = pcDest;
     destPtr += destLength;
 
@@ -117,7 +117,6 @@ char *Str_search(const char *haystack, const char *needle) {
     const char *innerHaystackPtr;
     const char *needlePtr;
     const char *needleStart;
-    size_t i;
 
     assert(haystack != NULL);
     assert(needle != NULL);
@@ -128,7 +127,6 @@ char *Str_search(const char *haystack, const char *needle) {
         return (char*)haystack;
     }
 
-    i = 0;
     haystackPtr = haystack;
     innerHaystackPtr = haystack;
     needlePtr = needle;
