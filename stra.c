@@ -70,7 +70,6 @@ int Str_compare(const char s1[], const char s2[]) {
     size_t length2;
     size_t i;
 
-
     assert(s1 != NULL);
     assert(s2 != NULL);
 

@@ -11,6 +11,10 @@ iSecond. */
 #include <stdlib.h>
 #include <assert.h>
 
+#ifndef STR_INCLUDED
+#define STR_INCLUDED
+
+
 /* 
     Str_getLength is a method that returns the length 
     of the pcSrc char array (equivalent to length of string).
@@ -76,3 +80,5 @@ int Str_compare(const char s1[], const char s2[]);
 
 */
 char* Str_search(const char *pcHaystack, const char *pcNeedle);
+
+#endif
