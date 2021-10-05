@@ -84,7 +84,6 @@ int Str_compare(const char s1[], const char s2[]) {
             } else {
                 return -1;
             }
-            return 1;
         } else if (s2[i] == '\0') {
             return 1;
         }

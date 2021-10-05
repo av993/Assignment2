@@ -92,7 +92,6 @@ int Str_compare(const char s1[], const char s2[]) {
             } else {
                 return -1;
             }
-            return 1;
         } else if (*s2Ptr == '\0') {
             return 1;
         }
